@@ -31,7 +31,9 @@
   },
   "homepage": "https://github.com/karpathy/convnetjs",
   "devDependencies": {
-    "jasmine": "^2.3.1",
+    "jasmine": "^2.3.1"
+  },
+  "dependencies": {
     "jsmin": "^1.0.1"
   }
 }
