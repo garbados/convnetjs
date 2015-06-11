@@ -1,3 +1,5 @@
+var convnetjs = require('../../build/convnet');
+
 describe("Simple Fully-Connected Neural Net Classifier", function() {
   var net;
   var trainer;
@@ -12,16 +14,16 @@ describe("Simple Fully-Connected Neural Net Classifier", function() {
     layer_defs.push({type:'softmax', num_classes:3});
     net.makeLayers(layer_defs);
 
-    trainer = new convnetjs.SGDTrainer(net, 
+    trainer = new convnetjs.SGDTrainer(net,
           {learning_rate:0.0001, momentum:0.0, batch_size:1, l2_decay:0.0});
   });
 
   it("should be possible to initialize", function() {
-    
+
     // tanh are their own layers. Softmax gets its own fully connected layer.
     // this should all get desugared just fine.
-    expect(net.layers.length).toEqual(7); 
-    
+    expect(net.layers.length).toEqual(7);
+
   });
 
   it("should forward prop volumes to probabilities", function() {
@@ -58,7 +60,7 @@ describe("Simple Fully-Connected Neural Net Classifier", function() {
   it("should compute correct gradient at data", function() {
 
     // here we only test the gradient at data, but if this is
-    // right then that's comforting, because it is a function 
+    // right then that's comforting, because it is a function
     // of all gradients above, for all layers.
 
     var x = new convnetjs.Vol([Math.random() * 2 - 1, Math.random() * 2 - 1]);
@@ -80,7 +82,6 @@ describe("Simple Fully-Connected Neural Net Classifier", function() {
 
       var grad_numeric = (c0 - c1)/(2 * delta);
       var rel_error = Math.abs(grad_analytic - grad_numeric)/Math.abs(grad_analytic + grad_numeric);
-      console.log(i + ': numeric: ' + grad_numeric + ', analytic: ' + grad_analytic + ' => rel error ' + rel_error);
       expect(rel_error).toBeLessThan(1e-2);
 
     }
