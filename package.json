@@ -10,7 +10,7 @@
     "test": "jasmine",
     "build-convnet": "cat src/convnet_init.js src/convnet_util.js src/convnet_vol.js src/convnet_vol_util.js src/convnet_layers_dotproducts.js src/convnet_layers_pool.js src/convnet_layers_input.js src/convnet_layers_loss.js src/convnet_layers_nonlinearities.js src/convnet_layers_dropout.js src/convnet_layers_normalization.js src/convnet_net.js src/convnet_trainers.js src/convnet_magicnet.js src/convnet_export.js > build/convnet.js && jsmin build/convnet.js > build/convnet.min.js",
     "build-deepqlearn": "cat src/util.js src/deepqlearn.js > build/deepqlearn.js && jsmin build/deepqlearn.js > build/deepqlearn.min.js",
-    "postinstall": "npm run build-convnet && npm run build-deepqlearn"
+    "postinstall": "mkdir build; npm run build-convnet && npm run build-deepqlearn"
   },
   "repository": {
     "type": "git",
