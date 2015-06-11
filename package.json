@@ -30,9 +30,10 @@
   },
   "homepage": "https://github.com/karpathy/convnetjs",
   "devDependencies": {
-    "browserify": "^10.2.4",
     "jasmine": "^2.3.1",
-    "jsmin": "^1.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "browserify": "^10.2.4",
+    "jsmin": "^1.0.1"
+  }
 }
